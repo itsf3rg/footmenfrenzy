@@ -35,10 +35,10 @@ func _handle_command(data: String, peer: StreamPeerTCP):
 	if error == OK:
 		var command = json.data
 		var response = _execute_command(command)
-		peer.put_utf8_string(JSON.stringify(response) + "\n")
+		peer.put_data((JSON.stringify(response) + "\n").to_utf8_buffer())
 		peer.disconnect_from_host() # Disconnect to signal end of stream for python script
 	else:
-		peer.put_utf8_string(JSON.stringify({"status": "error", "message": "Invalid JSON"}) + "\n")
+		peer.put_data((JSON.stringify({"status": "error", "message": "Invalid JSON"}) + "\n").to_utf8_buffer())
 		peer.disconnect_from_host()
 
 func _execute_command(cmd: Dictionary) -> Dictionary:
@@ -90,6 +90,14 @@ func _execute_command(cmd: Dictionary) -> Dictionary:
 			node.set(prop_name, prop_value)
 			return {"status": "ok", "message": "Property set"}
 		return {"status": "error", "message": "Node or property invalid"}
+		
+	elif action == "play_main_scene":
+		EditorInterface.play_main_scene()
+		return {"status": "ok", "message": "Playing main scene"}
+		
+	elif action == "stop_playing_scene":
+		EditorInterface.stop_playing_scene()
+		return {"status": "ok", "message": "Stopped playing scene"}
 
 	return {"status": "error", "message": "Unknown action"}
 
