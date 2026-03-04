@@ -28,3 +28,7 @@ FeedbackManager="*res://scripts/vfx/feedback_manager.gd"
 [dotnet]
 
 project/assembly_name="FungiForest"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/ai_bridge/plugin.cfg")
