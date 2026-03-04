@@ -20,6 +20,12 @@ config/icon="res://icon.svg"
 
 project/assembly_name="FungiForest"
 
+[autoload]
+
+MultiplayerManager="*res://scripts/network/multiplayer_manager.gd"
+GameStateSynchronizer="*res://scripts/network/game_state_synchronizer.gd"
+FeedbackManager="*res://scripts/vfx/feedback_manager.gd"
+
 [rendering]
 
 renderer/rendering_method="forward_plus"

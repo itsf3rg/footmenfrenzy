@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://mainarenauid"]
+
+[ext_resource type="Script" path="res://scripts/camera_controller.gd" id="1_cam"]
+[ext_resource type="Script" path="res://scripts/base_spawner.gd" id="2_spawn"]
+[ext_resource type="PackedScene" uid="uid://df2xpwovh1i67" path="res://scenes/units/footman.tscn" id="3_foot"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_nav"]
+vertices = PackedVector3Array(19, 0, 19, -19, 0, 19, -19, 0, -19, 19, 0, -19)
+polygons = [PackedInt32Array(0, 1, 2), PackedInt32Array(0, 2, 3)]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_floor"]
+albedo_color = Color(0.15, 0.3, 0.15, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_floor"]
+material = SubResource("StandardMaterial3D_floor")
+size = Vector3(40, 1, 40)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_floor"]
+size = Vector3(40, 1, 40)
+
+[node name="MainArena" type="Node3D"]
+
+[node name="RTSCamera" type="Camera3D" parent="."]
+transform = Transform3D(0.707106, -0.499999, 0.5, 0, 0.707106, 0.707106, -0.707106, -0.499999, 0.5, 20, 30, 20)
+projection = 1
+size = 20.0
+script = ExtResource("1_cam")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, -0.433012, 0.25, 0, 0.499998, 0.866026, -0.500001, -0.749999, 0.433014, 0, 10, 0)
+shadow_enabled = true
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_nav")
+
+[node name="Floor" type="StaticBody3D" parent="NavigationRegion3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_floor")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_floor")
+
+[node name="Base_Fire" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 15)
+script = ExtResource("2_spawn")
+
+[node name="Base_Water" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, -15)
+script = ExtResource("2_spawn")
+faction_id = 1
+
+[node name="Base_Light" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 15)
+script = ExtResource("2_spawn")
+faction_id = 2
+
+[node name="Base_Poison" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -15)
+script = ExtResource("2_spawn")
+faction_id = 3

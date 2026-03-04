@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://df2xpwovh1i67"]
+
+[ext_resource type="Script" path="res://scripts/footman_unit.gd" id="1_v4mab"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6x82q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5m2b1"]
+albedo_color = Color(0.8, 0.2, 0.2, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_n2x8x"]
+material = SubResource("StandardMaterial3D_5m2b1")
+
+[node name="Footman" type="CharacterBody3D"]
+script = ExtResource("1_v4mab")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_6x82q")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_n2x8x")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 1.5
+target_desired_distance = 1.5
+avoidance_enabled = true
+radius = 1.0
