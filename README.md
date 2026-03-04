@@ -5,3 +5,5 @@ Built using vanilla HTML, CSS, and modern JavaScript.
 
 ## Getting Started
 (Documentation coming soon)
+
+# footmenfrenzy
