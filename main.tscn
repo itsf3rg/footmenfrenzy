@@ -1,12 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://mainarenauid"]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://scripts/camera_controller.gd" id="1_cam"]
 [ext_resource type="Script" path="res://scripts/base_spawner.gd" id="2_spawn"]
 [ext_resource type="PackedScene" uid="uid://df2xpwovh1i67" path="res://scenes/units/footman.tscn" id="3_foot"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_nav"]
-vertices = PackedVector3Array(19, 0, 19, -19, 0, 19, -19, 0, -19, 19, 0, -19)
-polygons = [PackedInt32Array(0, 1, 2), PackedInt32Array(0, 2, 3)]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_floor"]
 albedo_color = Color(0.15, 0.3, 0.15, 1)

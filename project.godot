@@ -8,17 +8,16 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="FungiForest"
 config/description="Spore Wars - An auto-spawning arena brawler"
 run/main_scene="res://main.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
-config/icon="res://icon.svg"
-
-[dotnet]
-
-project/assembly_name="FungiForest"
+config/features=PackedStringArray("4.6", "Forward Plus")
 
 [autoload]
 
@@ -26,6 +25,6 @@ MultiplayerManager="*res://scripts/network/multiplayer_manager.gd"
 GameStateSynchronizer="*res://scripts/network/game_state_synchronizer.gd"
 FeedbackManager="*res://scripts/vfx/feedback_manager.gd"
 
-[rendering]
+[dotnet]
 
-renderer/rendering_method="forward_plus"
+project/assembly_name="FungiForest"

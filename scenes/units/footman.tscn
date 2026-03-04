@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://df2xpwovh1i67"]
+[gd_scene load_steps=5 format=3]
 
 [ext_resource type="Script" path="res://scripts/footman_unit.gd" id="1_v4mab"]
 
