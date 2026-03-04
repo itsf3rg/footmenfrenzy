@@ -15,7 +15,7 @@ func _ready():
 	target_position = global_position
 	# For isometric view, camera should generally have a fixed rotation of 
 	# roughly X: -45, Y: 45 or 0, depending on the map orientation.
-	target_zoom = translation.y
+	target_zoom = position.y
 
 func _process(delta):
 	_handle_movement(delta)
