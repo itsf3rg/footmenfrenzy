@@ -1,5 +1,4 @@
 extends Node
-class_name FeedbackManager
 
 # Agent 9: Audio & VFX Manager
 # Manages spawning particle effects and playing sounds WITHOUT tying them to unit lifespans.

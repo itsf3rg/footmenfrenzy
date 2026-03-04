@@ -1,5 +1,4 @@
 extends Node
-class_name GameStateSynchronizer
 
 # Responsible for synchronizing core game state (units, positions) from server to clients
 
