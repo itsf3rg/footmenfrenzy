@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://scripts/camera_controller.gd" id="1_cam"]
 [ext_resource type="Script" path="res://scripts/base_spawner.gd" id="2_spawn"]
 [ext_resource type="PackedScene" uid="uid://df2xpwovh1i67" path="res://scenes/units/footman.tscn" id="3_foot"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="4_hud"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_nav"]
 
@@ -59,3 +60,7 @@ faction_id = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -15)
 script = ExtResource("2_spawn")
 faction_id = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="CanvasLayer" instance=ExtResource("4_hud")]
