@@ -1,0 +1,36 @@
+{
+    "heroes": {
+        "knight_gummy": {
+            "name": "Sir Gumdrop",
+            "faction": "gummy",
+            "base_health": 800,
+            "base_mana": 150,
+            "move_speed": 7.5,
+            "abilities": ["gummy_slam", "sugar_rush", "sticky_shield", "gelatin_quake"]
+        },
+        "mage_chocolate": {
+            "name": "Cocoa Sorceress",
+            "faction": "chocolate",
+            "base_health": 450,
+            "base_mana": 400,
+            "move_speed": 6.8,
+            "abilities": ["truffle_blast", "fondue_pool", "cocoa_barrier", "meteor_crunch"]
+        }
+    },
+    "abilities": {
+        "gummy_slam": {
+            "name": "Gummy Slam",
+            "cooldown": 4.0,
+            "mana_cost": 30,
+            "damage": 50,
+            "type": "aoe_melee"
+        },
+        "truffle_blast": {
+            "name": "Truffle Blast",
+            "cooldown": 2.5,
+            "mana_cost": 45,
+            "damage": 75,
+            "type": "projectile"
+        }
+    }
+}
